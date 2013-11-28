@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:9080/service?wsdl" uri="xml-resources/web-service-references/service/wsdl/localhost_9080/service.wsdl"/>
+    <system systemId="http://localhost:8080/HotelWebService/NiceViewService?xsd=2" uri="xml-resources/web-service-references/service/wsdl/localhost_8080/HotelWebService/NiceViewService.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/HotelWebService/NiceViewService?xsd=1" uri="xml-resources/web-service-references/service/wsdl/localhost_8080/HotelWebService/NiceViewService.xsd_1.xsd"/>
+</catalog>

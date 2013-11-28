@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<jbi xmlns="http://java.sun.com/xml/ns/jbi" xmlns:ns0="http://enterprise.netbeans.org/bpel/TravelGood/travelGood" xmlns:ns1="http://niceview.ws" xmlns:ns2="http://travelgood.ws" xmlns:ns3="http://www.sun.com/jbi/descriptor/service-unit" version="1.0">
+    <services binding-component="false">
+        <provides endpoint-name="travelGoodPortTypeRole_myRole" interface-name="ns2:travelGoodPortType" service-name="ns0:TravelPartnerLink">
+            <ns3:display-name>TravelPartnerLink</ns3:display-name>
+            <ns3:process-name>travelGood</ns3:process-name>
+            <ns3:file-path>travelGood.bpel</ns3:file-path>
+        </provides>
+        <consumes endpoint-name="NiceViewServiceRole_partnerRole" interface-name="ns1:NiceViewService" service-name="ns0:NiceViewPartnerLink">
+            <ns3:display-name>NiceViewPartnerLink</ns3:display-name>
+            <ns3:process-name>travelGood</ns3:process-name>
+            <ns3:file-path>travelGood.bpel</ns3:file-path>
+        </consumes>
+    </services>
+</jbi>

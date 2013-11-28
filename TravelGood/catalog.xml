@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <nextCatalog catalog="nbproject/private/retriever/catalog.xml"/>
+    <system systemId="http://localhost:8080/HotelWebService/NiceViewService?wsdl" uri="src/localhost_8080/HotelWebService/NiceViewService.wsdl"/>
+    <system systemId="http://localhost:8080/HotelWebService/NiceViewService?xsd=1" uri="src/localhost_8080/HotelWebService/NiceViewService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/HotelWebService/NiceViewService?xsd=2" uri="src/localhost_8080/HotelWebService/NiceViewService.xsd_2.xsd"/>
+</catalog>

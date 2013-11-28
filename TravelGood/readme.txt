@@ -1,0 +1,1 @@
+This is the blank TravelGoodService waiting you to add bookingHotel, bookingFlight and payment functions.
