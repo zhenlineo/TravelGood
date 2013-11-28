@@ -13,16 +13,15 @@
     <import namespace="http://travelgood.ws" location="travelGood.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://enterprise.netbeans.org/bpel/NiceViewServiceWrapper" location="NiceViewServiceWrapper.wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
     <import namespace="http://niceview.ws" location="http://localhost:8080/HotelWebService/NiceViewService?wsdl" importType="http://schemas.xmlsoap.org/wsdl/"/>
+    <import namespace="http://niceview.ws" location="http://localhost:8080/HotelWebService/NiceViewService?xsd=2" importType="http://www.w3.org/2001/XMLSchema"/>
     <partnerLinks>
          <partnerLink name="NiceViewPartnerLink" xmlns:tns="http://enterprise.netbeans.org/bpel/NiceViewServiceWrapper" partnerLinkType="tns:NiceViewServiceLinkType" partnerRole="NiceViewServiceRole"/>
          <partnerLink name="TravelPartnerLink" xmlns:tns="http://travelgood.ws" partnerLinkType="tns:travelGood" myRole="travelGoodPortTypeRole"/>
     </partnerLinks>
     <variables>
-        <variable name="hotelSRList" type="ns0:hotelBookingList">
+        <variable name="hotelSearchResult" type="ns1:hotelBookingList">
              <sxed:editor>
-                  <sxed:predicate path="$hotelSRList/hotelBookingList[$ForEachHotelSearchResultCounter]" source="to"/>
-                  <sxed:predicate path="$hotelSRList/hotelBookingList[$ForEachHotelSearchResultCounter]" source="from"/>
-                  <sxed:predicate path="$hotelSRList/hotelBookingList[$ForEachHotelSearchCounter]" source="from"/>
+                  <sxed:predicate path="$hotelSearchResult/hotels[$ForEachHotelSearchCounter]" source="from"/>
              </sxed:editor>
         </variable>
         <variable name="BookingItineraryOut" messageType="ns0:bookingItineraryResponse"/>
@@ -90,13 +89,9 @@
             <sequence name="Sequence7">
                 <assign name="AssignSearchResult">
                     <copy>
-                        <from>'DEFAULT'</from>
-                        <to>$hotelSRList/hotelBookingList/bookingNumber</to>
+                        <from>0</from>
+                        <to>$hotelSearchResult/count</to>
                     </copy>
-                     <copy>
-                          <from>0</from>
-                          <to>$hotelSRList/count</to>
-                     </copy>
                 </assign>
                 <while name="WhileNotExpired" xmlns:tns="http://niceview.ws">
                      <condition>not(sxxf:date-less-than($itinerary.itinerary/startDate, sxxf:current-date()))</condition>
@@ -144,76 +139,16 @@
                                                          </copy>
                                                     </assign>
                                                     <invoke name="InvokeGetHotel" partnerLink="NiceViewPartnerLink" operation="getHotels" portType="tns:NiceViewService" inputVariable="GetHotelsIn" outputVariable="GetHotelsOut"/>
-                                                     <assign name="AssignSearchResultCount">
-                                                          <copy>
-                                                               <from>$GetHotelsOut.return/count</from>
-                                                               <to>$hotelSRList/count</to>
-                                                          </copy>
-                                                          <copy>
-                                                               <from>$GetHotelsOut.return/count</from>
-                                                               <to>$SearchHotelsOut.hotels/count</to>
-                                                          </copy>
-                                                     </assign>
-                                                     <forEach name="ForEachHotelSearchResult" parallel="no" counterName="ForEachHotelSearchResultCounter">
-                                                        <startCounterValue>1</startCounterValue>
-                                                         <finalCounterValue>$GetHotelsOut.return/count</finalCounterValue>
-                                                         <scope name="Scope1">
-                                                              <sequence name="Sequence14">
-                                                                   <assign name="AssignToServer">
-                                                                        <copy>
-                                                                             <from>$GetHotelsOut.return/hotels[$ForEachHotelSearchResultCounter]/bookingNumber
-                                                                                  <sxed:editor>
-                                                                                       <sxed:predicate path="$GetHotelsOut.return/hotels[$ForEachHotelSearchResultCounter]" source="from"/>
-                                                                                  </sxed:editor>
-                                                                             </from>
-                                                                             <to>$hotelSRList/hotelBookingList[$ForEachHotelSearchResultCounter]/bookingNumber
-                                                                                  <sxed:editor>
-                                                                                       <sxed:predicate path="$hotelSRList/hotelBookingList[$ForEachHotelSearchResultCounter]" source="to"/>
-                                                                                  </sxed:editor>
-                                                                             </to>
-                                                                        </copy>
-                                                                        <copy>
-                                                                             <from>$GetHotelsOut.return/hotels[$ForEachHotelSearchResultCounter]/hotelService
-                                                                                  <sxed:editor>
-                                                                                       <sxed:predicate path="$GetHotelsOut.return/hotels[$ForEachHotelSearchResultCounter]" source="from"/>
-                                                                                  </sxed:editor>
-                                                                             </from>
-                                                                             <to>$hotelSRList/hotelBookingList[$ForEachHotelSearchResultCounter]/hotelService
-                                                                                  <sxed:editor>
-                                                                                       <sxed:predicate path="$hotelSRList/hotelBookingList[$ForEachHotelSearchResultCounter]" source="to"/>
-                                                                                  </sxed:editor>
-                                                                             </to>
-                                                                        </copy>
-                                                                        <copy>
-                                                                             <from>$GetHotelsOut.return/hotels[$ForEachHotelSearchResultCounter]/price
-                                                                                  <sxed:editor>
-                                                                                       <sxed:predicate path="$GetHotelsOut.return/hotels[$ForEachHotelSearchResultCounter]" source="from"/>
-                                                                                  </sxed:editor>
-                                                                             </from>
-                                                                             <to>$hotelSRList/hotelBookingList[$ForEachHotelSearchResultCounter]/price
-                                                                                  <sxed:editor>
-                                                                                       <sxed:predicate path="$hotelSRList/hotelBookingList[$ForEachHotelSearchResultCounter]" source="to"/>
-                                                                                  </sxed:editor>
-                                                                             </to>
-                                                                        </copy>
-                                                                   </assign>
-                                                                   <assign name="AssignToReturn">
-                                                                        <copy>
-                                                                             <from>$hotelSRList/hotelBookingList[$ForEachHotelSearchResultCounter]
-                                                                                  <sxed:editor>
-                                                                                       <sxed:predicate path="$hotelSRList/hotelBookingList[$ForEachHotelSearchResultCounter]" source="from"/>
-                                                                                  </sxed:editor>
-                                                                             </from>
-                                                                             <to>$SearchHotelsOut.hotels/hotelBookingList[$ForEachHotelSearchResultCounter]
-                                                                                  <sxed:editor>
-                                                                                       <sxed:predicate path="$SearchHotelsOut.hotels/hotelBookingList[$ForEachHotelSearchResultCounter]" source="to"/>
-                                                                                  </sxed:editor>
-                                                                             </to>
-                                                                        </copy>
-                                                                   </assign>
-                                                              </sequence>
-                                                         </scope>
-                                                    </forEach>
+                                                    <assign name="AssignToRet">
+                                                        <copy>
+                                                                <from variable="GetHotelsOut" part="return"/>
+                                                                    <to variable="SearchHotelsOut" part="hotels"/>
+                                                            </copy>
+                                                        <copy>
+                                                            <from variable="GetHotelsOut" part="return"/>
+                                                            <to variable="hotelSearchResult"/>
+                                                        </copy>
+                                                    </assign>
                                                 </sequence>
                                             </if>
                                             <reply name="ReplyToSearchHotel" partnerLink="TravelPartnerLink" operation="searchHotels" portType="ns0:travelGoodPortType" variable="SearchHotelsOut"/>
@@ -235,32 +170,62 @@
                                          <sequence name="Sequence17">
                                               <forEach name="SearchBookingNumIntheSystem" parallel="no" counterName="ForEachHotelSearchCounter">
                                                    <startCounterValue>1</startCounterValue>
-                                                        <finalCounterValue>$hotelSRList/count</finalCounterValue>
-                                                        <scope name="Scope2">
+                                                  <finalCounterValue>$hotelSearchResult/count</finalCounterValue>
+                                                  <scope name="Scope2">
                                                              <sequence name="Sequence16">
                                                                        <if name="IfMatches">
-                                                                                 <condition>contains($AddHotelIn.bookingNum, $hotelSRList/hotelBookingList[$ForEachHotelSearchCounter]/bookingNumber) and contains($hotelSRList/hotelBookingList[$ForEachHotelSearchCounter]/bookingNumber, $AddHotelIn.bookingNum)
-                                                                                                <sxed:editor>
-                                                                                                     <sxed:predicate path="$hotelSRList/hotelBookingList[$ForEachHotelSearchCounter]" source="from"/>
-                                                                                                </sxed:editor>
-                                                                                      </condition>
-                                                                            <sequence name="Sequence18">
+                                                                            <condition>contains($AddHotelIn.bookingNum, $hotelSearchResult/hotels[$ForEachHotelSearchCounter]/bookingNumber) and contains($AddHotelIn.bookingNum, $hotelSearchResult/hotels[$ForEachHotelSearchCounter]/bookingNumber)
+                                                                                 <sxed:editor>
+                                                                                      <sxed:predicate path="$hotelSearchResult/hotels[$ForEachHotelSearchCounter]" source="from"/>
+                                                                                 </sxed:editor>
+                                                                            </condition>
+                                                                            <sequence name="Sequence19">
+                                                                                 <assign name="AssignReturnTrue">
+                                                                                      <copy>
+                                                                                           <from>true()</from>
+                                                                                                <to variable="AddHotelOut" part="ret"/>
+                                                                                      </copy>
+                                                                                 </assign>
                                                                                  <assign name="AddHotelInItinerary">
                                                                                       <copy>
-                                                                                           <from>'unconfirmed'</from>
-                                                                                           <to>$itinerary.itinerary/hotelBookings[$itinerary.itinerary/numberOfHotels + 1]/status
+                                                                                                <from>'unconfirmed'</from>
+                                                                                                     <to>$itinerary.itinerary/hotelBookings[$itinerary.itinerary/numberOfHotels + 1]/status
+                                                                                                <sxed:editor>
+                                                                                                                    <sxed:predicate path="$itinerary.itinerary/hotelBookings[$itinerary.itinerary/numberOfHotels + 1]" source="to"/>
+                                                                                                               </sxed:editor>
+                                                                                                     </to>
+                                                                                           </copy>
+                                                                                      <copy>
+                                                                                           <from>$hotelSearchResult/hotels[$ForEachHotelSearchCounter]/bookingNumber
+                                                                                                <sxed:editor>
+                                                                                                     <sxed:predicate path="$hotelSearchResult/hotels[$ForEachHotelSearchCounter]" source="from"/>
+                                                                                                </sxed:editor>
+                                                                                           </from>
+                                                                                           <to>$itinerary.itinerary/hotelBookings[$itinerary.itinerary/numberOfHotels + 1]/hotelbookings/bookingNumber
                                                                                                 <sxed:editor>
                                                                                                      <sxed:predicate path="$itinerary.itinerary/hotelBookings[$itinerary.itinerary/numberOfHotels + 1]" source="to"/>
                                                                                                 </sxed:editor>
                                                                                            </to>
                                                                                       </copy>
                                                                                       <copy>
-                                                                                           <from>$hotelSRList/hotelBookingList[$ForEachHotelSearchCounter]
+                                                                                           <from>$hotelSearchResult/hotels[$ForEachHotelSearchCounter]/hotelService
                                                                                                 <sxed:editor>
-                                                                                                     <sxed:predicate path="$hotelSRList/hotelBookingList[$ForEachHotelSearchCounter]" source="from"/>
+                                                                                                     <sxed:predicate path="$hotelSearchResult/hotels[$ForEachHotelSearchCounter]" source="from"/>
                                                                                                 </sxed:editor>
                                                                                            </from>
-                                                                                           <to>$itinerary.itinerary/hotelBookings[$itinerary.itinerary/numberOfHotels + 1]/hotelbookings
+                                                                                           <to>$itinerary.itinerary/hotelBookings[$itinerary.itinerary/numberOfHotels + 1]/hotelbookings/hotelService
+                                                                                                <sxed:editor>
+                                                                                                     <sxed:predicate path="$itinerary.itinerary/hotelBookings[$itinerary.itinerary/numberOfHotels + 1]" source="to"/>
+                                                                                                </sxed:editor>
+                                                                                           </to>
+                                                                                      </copy>
+                                                                                      <copy>
+                                                                                           <from>$hotelSearchResult/hotels[$ForEachHotelSearchCounter]/price
+                                                                                                <sxed:editor>
+                                                                                                     <sxed:predicate path="$hotelSearchResult/hotels[$ForEachHotelSearchCounter]" source="from"/>
+                                                                                                </sxed:editor>
+                                                                                           </from>
+                                                                                           <to>$itinerary.itinerary/hotelBookings[$itinerary.itinerary/numberOfHotels + 1]/hotelbookings/price
                                                                                                 <sxed:editor>
                                                                                                      <sxed:predicate path="$itinerary.itinerary/hotelBookings[$itinerary.itinerary/numberOfHotels + 1]" source="to"/>
                                                                                                 </sxed:editor>
@@ -268,17 +233,11 @@
                                                                                       </copy>
                                                                                  </assign>
                                                                                  <assign name="AddNumberOfHotels">
-                                                                                           <copy>
-                                                                                                     <from>1 + $itinerary.itinerary/numberOfHotels</from>
-                                                                                                          <to>$itinerary.itinerary/numberOfHotels</to>
-                                                                                                </copy>
-                                                                                      </assign>
-                                                                                      <assign name="AssignReturnTrue">
-                                                                                           <copy>
-                                                                                                     <from>true()</from>
-                                                                                                          <to variable="AddHotelOut" part="ret"/>
-                                                                                                </copy>
-                                                                                      </assign>
+                                                                                      <copy>
+                                                                                                <from>1 + $itinerary.itinerary/numberOfHotels</from>
+                                                                                                     <to>$itinerary.itinerary/numberOfHotels</to>
+                                                                                           </copy>
+                                                                                 </assign>
                                                                             </sequence>
                                                                        </if>
                                                                   </sequence>
@@ -287,6 +246,30 @@
                                          </sequence>
                                     </if>
                                     <reply name="ReplyToAddHotel" partnerLink="TravelPartnerLink" operation="addHotel" portType="ns0:travelGoodPortType" variable="AddHotelOut"/>
+                               </sequence>
+                          </onMessage>
+                          <onMessage partnerLink="TravelPartnerLink" operation="bookingItinerary" portType="ns0:travelGoodPortType" variable="BookingItineraryIn">
+                               <correlations>
+                                    <correlation set="ItineraryCorrelation" initiate="no"/>
+                               </correlations>
+                               <sequence name="Sequence20">
+                                    <assign name="AssignDefaultRet3">
+                                         <copy>
+                                              <from>false()</from>
+                                              <to variable="BookingItineraryOut" part="ret"/>
+                                         </copy>
+                                    </assign>
+                                    <if name="IfBookingUncomfirmed">
+                                         <condition>contains($itinerary.itinerary/status, 'unconfirmed')</condition>
+                                         <forEach name="BookForEachHotel" parallel="no" counterName="ForEachHotelBookingCounter">
+                                              <startCounterValue>1</startCounterValue>
+                                              <finalCounterValue>$itinerary.itinerary/numberOfHotels</finalCounterValue>
+                                              <scope name="Scope3">
+                                                   <empty name="Empty1"/>
+                                              </scope>
+                                         </forEach>
+                                    </if>
+                                    <reply name="Reply1" partnerLink="TravelPartnerLink" operation="bookingItinerary" portType="ns0:travelGoodPortType" variable="BookingItineraryOut"/>
                                </sequence>
                           </onMessage>
                      </pick>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions name="travelGood" targetNamespace="http://travelgood.ws" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns="urn://types.fastmoney.imm.dtu.dk" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://travelgood.ws" xmlns:ns0="http://hotel_ws/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+<definitions name="travelGood" targetNamespace="http://travelgood.ws" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:ns1="http://niceview.ws" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns="urn://types.fastmoney.imm.dtu.dk" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://travelgood.ws" xmlns:ns0="http://hotel_ws/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
   <types>
     <xsd:schema targetNamespace="http://travelgood.ws" xmlns:tns="http://travelgood.ws">
             <xsd:import namespace="http://niceview.ws" schemaLocation="http://localhost:8080/HotelWebService/NiceViewService?xsd=2"/>
@@ -15,26 +15,26 @@
                     <xsd:element name="startDate" type="xsd:date"/>
                 </xsd:sequence>
             </xsd:complexType>
-            <xsd:complexType name="hotelBookingList">
+            <!--<xsd:complexType name="hotelBookingList">
                 <xsd:sequence>
-                    <xsd:element maxOccurs="unbounded" minOccurs="0" name="hotelBookingList" nillable="true" type="tns:hotelBooking"/>
-                    <xsd:element name="count" type="xsd:int"/>
+                    <xsd:element name="hotelBookingList" type="tns:hotelBooking" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+                    <xsd:element name="count" type="xsd:int"></xsd:element>
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:complexType name="hotelBooking">
                 <xsd:sequence>
-                    <xsd:element minOccurs="0" name="bookingNumber" type="xsd:string"/>
-                    <xsd:element minOccurs="0" name="address" type="xsd:string"/>
-                    <xsd:element minOccurs="0" name="availableFrom" type="xsd:date"/>
-                    <xsd:element minOccurs="0" name="availableTo" type="xsd:date"/>
-                    <xsd:element minOccurs="0" name="city" type="xsd:string"/>
+                    <xsd:element name="bookingNumber" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="address" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="availableFrom" type="xsd:date" minOccurs="0"/>
+                    <xsd:element name="availableTo" type="xsd:date" minOccurs="0"/>
+                    <xsd:element name="city" type="xsd:string" minOccurs="0"/>
                     <xsd:element name="creditcardRequired" type="xsd:boolean"/>
-                    <xsd:element minOccurs="0" name="name" type="xsd:string"/>
-                    <xsd:element minOccurs="0" name="hotelService" type="xsd:string"/>
+                    <xsd:element name="name" type="xsd:string" minOccurs="0"/>
+                    <xsd:element name="hotelService" type="xsd:string" minOccurs="0"/>
                     <xsd:element name="price" type="xsd:int"/>
                 </xsd:sequence>
             </xsd:complexType>
-            <!--<xsd:complexType name="hotel">
+            <xsd:complexType name="hotel">
                 <xsd:sequence>
                     <xsd:element name="address" type="xsd:string" minOccurs="0"/>
                     <xsd:element name="availableFrom" type="xsd:date" minOccurs="0"/>
@@ -53,7 +53,7 @@
             </xsd:complexType>
             <xsd:complexType name="itineraryHotelEntry">
                 <xsd:sequence>
-                    <xsd:element minOccurs="0" name="hotelbookings" type="tns:hotelBooking"/>
+                    <xsd:element minOccurs="0" name="hotelbookings" type="ns1:hotelBooking"/>
                     <xsd:element minOccurs="0" name="status" type="tns:bookingStatus"/>
                 </xsd:sequence>
             </xsd:complexType>
@@ -73,7 +73,7 @@
         </xsd:schema>
   </types>
   <message name="searchHotelsResponse">
-    <part name="hotels" type="tns:hotelBookingList">
+    <part name="hotels" type="ns1:hotelBookingList">
     </part>
   </message>
   <message name="searchHotelsRequest">
