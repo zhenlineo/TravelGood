@@ -39,7 +39,9 @@
         <variable name="itinerary" xmlns:tns="http://travelgood.ws" messageType="tns:createItineraryResponse">
             <sxed:editor>
                 <sxed:predicate path="$itinerary.itinerary/hotelBookings[$CancelHotelCounter]" source="to"/>
-                 <sxed:predicate path="$itinerary.itinerary/hotelBookings[$itinerary.itinerary/numberOfHotels + 1]" source="to"/>
+                 <sxed:predicate path="$itinerary.itinerary/hotelBookings[$ForEachHotelBookingCounter]" source="from"/>
+                 <sxed:predicate path="$itinerary.itinerary/hotelBookings[$ForEachHotelBookingCounter]" source="to"/>
+                 <sxed:predicate path="$itinerary.itinerary/hotelBookings[$ForEachCancelCounter]" source="from"/>
             </sxed:editor>
         </variable>
         <variable name="CreateItineraryIn" xmlns:tns="http://travelgood.ws" messageType="tns:createItineraryRequest"/>
@@ -261,13 +263,121 @@
                                     </assign>
                                     <if name="IfBookingUncomfirmed">
                                          <condition>contains($itinerary.itinerary/status, 'unconfirmed')</condition>
-                                         <forEach name="BookForEachHotel" parallel="no" counterName="ForEachHotelBookingCounter">
-                                              <startCounterValue>1</startCounterValue>
-                                              <finalCounterValue>$itinerary.itinerary/numberOfHotels</finalCounterValue>
-                                              <scope name="Scope3">
-                                                   <empty name="Empty1"/>
-                                              </scope>
-                                         </forEach>
+                                         <scope name="Scope4">
+                                              <faultHandlers>
+                                                   <catchAll>
+                                                        <sequence name="Sequence29">
+                                                             <compensate name="Compensate1"/>
+                                                             <exit name="Exit1"/>
+                                                        </sequence>
+                                                   </catchAll>
+                                              </faultHandlers>
+                                              <sequence name="Sequence24">
+                                                   <scope name="Scope5">
+                                                        <compensationHandler>
+                                                             <sequence name="Sequence27">
+                                                                  <forEach name="ForEachConfirmed" parallel="no" counterName="ForEachCancelCounter">
+                                                                       <startCounterValue>1</startCounterValue>
+                                                                       <finalCounterValue>$itinerary.itinerary/numberOfHotels</finalCounterValue>
+                                                                       <scope name="ScopeCompa">
+                                                                            <variables>
+                                                                                 <variable name="CancelHotelOut" messageType="tns:cancelHotelResponse"/>
+                                                                                 <variable name="CancelHotelIn" messageType="tns:cancelHotel"/>
+                                                                            </variables>
+                                                                            <faultHandlers>
+                                                                                 <catchAll>
+                                                                                      <empty name="Empty3"/>
+                                                                                 </catchAll>
+                                                                            </faultHandlers>
+                                                                                 <sequence name="Sequence25">
+                                                                                      <sequence name="Sequence28">
+                                                                                           <assign name="AssignCancelParams">
+                                                                                                     <copy>
+                                                                                                          <from>$itinerary.itinerary/hotelBookings[$ForEachCancelCounter]/hotelbookings/bookingNumber
+                                                                                                               <sxed:editor>
+                                                                                                                    <sxed:predicate path="$itinerary.itinerary/hotelBookings[$ForEachCancelCounter]" source="from"/>
+                                                                                                               </sxed:editor>
+                                                                                                          </from>
+                                                                                                          <to variable="CancelHotelIn" part="arg0"/>
+                                                                                                     </copy>
+                                                                                                </assign>
+                                                                                                <invoke name="InvokeCancelHotel" partnerLink="NiceViewPartnerLink" operation="cancelHotel" portType="tns:NiceViewService" inputVariable="CancelHotelIn" outputVariable="CancelHotelOut"/>
+                                                                                                <assign name="AssignEntryBookingCanceled">
+                                                                                                     <copy>
+                                                                                                          <from>'cancelled'</from>
+                                                                                                               <to>$itinerary.itinerary/hotelBookings[$ForEachCancelCounter]/status
+                                                                                                                         <sxed:editor>
+                                                                                                                              <sxed:predicate path="$itinerary.itinerary/hotelBookings[$ForEachCancelCounter]" source="to"/>
+                                                                                                                         </sxed:editor>
+                                                                                                               </to>
+                                                                                                     </copy>
+                                                                                                </assign>
+                                                                                      </sequence>
+                                                                                      <if name="IfConfirmed">
+                                                                                           <condition>contains('confirmed', $itinerary.itinerary/hotelBookings[$ForEachCancelCounter]/status)
+                                                                                                <sxed:editor>
+                                                                                                     <sxed:predicate path="$itinerary.itinerary/hotelBookings[$ForEachCancelCounter]" source="from"/>
+                                                                                                </sxed:editor>
+                                                                                           </condition>
+                                                                                           <empty name="Empty2"/>
+                                                                                      </if>
+                                                                                 </sequence>
+                                                                       </scope>
+                                                                  </forEach>
+                                                             </sequence>
+                                                        </compensationHandler>
+                                                        <sequence name="Sequence26">
+                                                             <forEach name="BookForEachHotel" parallel="no" counterName="ForEachHotelBookingCounter">
+                                                                  <startCounterValue>1</startCounterValue>
+                                                                       <finalCounterValue>$itinerary.itinerary/numberOfHotels</finalCounterValue>
+                                                                       <scope name="ScopeBooking">
+                                                                       <variables>
+                                                                                      <variable name="BookHotelOut" messageType="ns1:bookHotelResponse"/>
+                                                                                      <variable name="BookHotelIn" messageType="ns1:bookHotel"/>
+                                                                            </variables>
+                                                                            <sequence name="Sequence21">
+                                                                                 <assign name="AssignBookHotelInput">
+                                                                                           <copy>
+                                                                                                     <from>$itinerary.itinerary/hotelBookings[$ForEachHotelBookingCounter]/hotelbookings/bookingNumber
+                                                                                                                    <sxed:editor>
+                                                                                                                         <sxed:predicate path="$itinerary.itinerary/hotelBookings[$ForEachHotelBookingCounter]" source="from"/>
+                                                                                                                    </sxed:editor>
+                                                                                                          </from>
+                                                                                                          <to variable="BookHotelIn" part="arg0"/>
+                                                                                                </copy>
+                                                                                                <copy>
+                                                                                                     <from variable="BookingItineraryIn" part="creditcardInfo"/>
+                                                                                                          <to variable="BookHotelIn" part="arg1"/>
+                                                                                                </copy>
+                                                                                      </assign>
+                                                                                      <invoke name="InvokeBookHotel" partnerLink="NiceViewPartnerLink" operation="bookHotel" portType="ns1:NiceViewService" inputVariable="BookHotelIn" outputVariable="BookHotelOut"/>
+                                                                                      <assign name="AssignStatus">
+                                                                                           <copy>
+                                                                                                     <from>'confirmed'</from>
+                                                                                                          <to>$itinerary.itinerary/hotelBookings[$ForEachHotelBookingCounter]/status
+                                                                                                                    <sxed:editor>
+                                                                                                                         <sxed:predicate path="$itinerary.itinerary/hotelBookings[$ForEachHotelBookingCounter]" source="to"/>
+                                                                                                                    </sxed:editor>
+                                                                                                          </to>
+                                                                                                </copy>
+                                                                                      </assign>
+                                                                            </sequence>
+                                                                  </scope>
+                                                             </forEach>
+                                                        </sequence>
+                                                   </scope>
+                                                             <assign name="AssignRetTrueStausConfirmed">
+                                                             <copy>
+                                                                       <from>true()</from>
+                                                                            <to variable="BookingItineraryOut" part="ret"/>
+                                                                  </copy>
+                                                                  <copy>
+                                                                       <from>'confirmed'</from>
+                                                                            <to>$itinerary.itinerary/status</to>
+                                                                  </copy>
+                                                        </assign>
+                                                   </sequence>
+                                         </scope>
                                     </if>
                                     <reply name="Reply1" partnerLink="TravelPartnerLink" operation="bookingItinerary" portType="ns0:travelGoodPortType" variable="BookingItineraryOut"/>
                                </sequence>

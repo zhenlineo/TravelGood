@@ -5,4 +5,5 @@
     <system systemId="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment" uri="TravelGood/src/_references/_relative/nbproject/private/retriever/www.oracle.com/us/sun/index.htm"/>
     <system systemId="http://travelgood.ws" uri="TravelGood/src/_references/_relative/nbproject/private/retriever/travelgood.ws"/>
     <system systemId="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2" uri="TravelGood/src/_references/_relative/nbproject/private/retriever/www.oracle.com/us/sun/index.htm"/>
+    <system systemId="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/XPathFunctions" uri="TravelGood/src/_references/_relative/nbproject/private/retriever/www.oracle.com/us/sun/index.htm"/>
 </catalog>
