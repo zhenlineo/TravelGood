@@ -268,15 +268,15 @@
                                                    <catchAll>
                                                         <sequence name="Sequence29">
                                                              <compensate name="Compensate1"/>
-                                                             <exit name="Exit1"/>
                                                         </sequence>
                                                    </catchAll>
                                               </faultHandlers>
-                                              <sequence name="Sequence24">
+                                             <sequence name="Sequence24">
                                                    <scope name="Scope5">
                                                         <compensationHandler>
                                                              <sequence name="Sequence27">
-                                                                  <forEach name="ForEachConfirmed" parallel="no" counterName="ForEachCancelCounter">
+                                                                 <empty name="Empty4"/>
+                                                                 <forEach name="ForEachConfirmed" parallel="no" counterName="ForEachCancelCounter">
                                                                        <startCounterValue>1</startCounterValue>
                                                                        <finalCounterValue>$itinerary.itinerary/numberOfHotels</finalCounterValue>
                                                                        <scope name="ScopeCompa">
@@ -335,7 +335,7 @@
                                                                                       <variable name="BookHotelOut" messageType="ns1:bookHotelResponse"/>
                                                                                       <variable name="BookHotelIn" messageType="ns1:bookHotel"/>
                                                                             </variables>
-                                                                            <sequence name="Sequence21">
+                                                                           <sequence name="Sequence21">
                                                                                  <assign name="AssignBookHotelInput">
                                                                                            <copy>
                                                                                                      <from>$itinerary.itinerary/hotelBookings[$ForEachHotelBookingCounter]/hotelbookings/bookingNumber
