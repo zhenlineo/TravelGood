@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LameDuckServiceWrapper" targetNamespace="http://enterprise.netbeans.org/bpel/LameDuckServiceWrapper" xmlns:tns="http://enterprise.netbeans.org/bpel/LameDuckServiceWrapper" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:ns="http://lameduck.ws">
+    <import location="http://localhost:8080/LameDuck/LameDuckService?wsdl" namespace="http://lameduck.ws"/>
+    <plnk:partnerLinkType name="LameDuckServiceLinkType">
+        <plnk:role name="LameDuckServiceRole" portType="ns:LameDuckService"/>
+    </plnk:partnerLinkType>
+</definitions>

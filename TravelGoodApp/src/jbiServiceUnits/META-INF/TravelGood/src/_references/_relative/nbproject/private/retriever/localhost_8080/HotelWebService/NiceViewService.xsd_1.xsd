@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.1.1 (branches/2.1-6844; 2011-07-29T12:07:24+0000) JAXWS-RI/2.2.5 JAXWS/2.2. --><xs:schema xmlns:tns="urn://types.fastmoney.imm.dtu.dk" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="urn://types.fastmoney.imm.dtu.dk">
+
+<xs:complexType name="creditCardInfoType">
+<xs:sequence>
+<xs:element name="expirationDate" type="tns:expirationDateType"/>
+<xs:element name="name" type="xs:string"/>
+<xs:element name="number" type="xs:string"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="expirationDateType">
+<xs:sequence>
+<xs:element name="month" type="xs:int"/>
+<xs:element name="year" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

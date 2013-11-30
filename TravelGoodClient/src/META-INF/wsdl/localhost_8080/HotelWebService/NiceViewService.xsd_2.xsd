@@ -11,7 +11,7 @@
 <xs:complexType name="hotelBookingList">
 <xs:sequence>
 <xs:element name="count" type="xs:int"/>
-<xs:element name="hotels" type="tns:hotelBooking" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="hotelBookings" type="tns:hotelBooking" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
 </xs:complexType>
 

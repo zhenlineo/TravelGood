@@ -3,4 +3,5 @@
     <system systemId="http://localhost:9080/service?wsdl" uri="xml-resources/web-service-references/service/wsdl/localhost_9080/service.wsdl"/>
     <system systemId="http://localhost:8080/HotelWebService/NiceViewService?xsd=2" uri="xml-resources/web-service-references/service/wsdl/localhost_8080/HotelWebService/NiceViewService.xsd_2.xsd"/>
     <system systemId="http://localhost:8080/HotelWebService/NiceViewService?xsd=1" uri="xml-resources/web-service-references/service/wsdl/localhost_8080/HotelWebService/NiceViewService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/LameDuck/LameDuckService?xsd=2" uri="xml-resources/web-service-references/service/wsdl/localhost_8080/LameDuck/LameDuckService.xsd_2.xsd"/>
 </catalog>

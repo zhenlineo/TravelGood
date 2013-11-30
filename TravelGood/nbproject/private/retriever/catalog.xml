@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
-    <system systemId="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Attachment" uri="www.oracle.com/us/sun/index.htm"/>
-    <system systemId="http://travelgood.ws" uri="travelgood.ws"/>
-    <system systemId="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/Editor2" uri="www.oracle.com/us/sun/index.htm"/>
-    <system systemId="http://www.sun.com/wsbpel/2.0/process/executable/SUNExtension/XPathFunctions" uri="www.oracle.com/us/sun/index.htm"/>
+    <system systemId="http://localhost:8080/HotelWebService/NiceViewService?wsdl" uri="localhost_8080/HotelWebService/NiceViewService.wsdl"/>
+    <system systemId="http://localhost:8080/HotelWebService/NiceViewService?xsd=1" uri="localhost_8080/HotelWebService/NiceViewService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/HotelWebService/NiceViewService?xsd=2" uri="localhost_8080/HotelWebService/NiceViewService.xsd_2.xsd"/>
+    <system systemId="http://localhost:8080/LameDuck/LameDuckService?wsdl" uri="localhost_8080/LameDuck/LameDuckService.wsdl"/>
+    <system systemId="http://localhost:8080/LameDuck/LameDuckService?xsd=1" uri="localhost_8080/LameDuck/LameDuckService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/LameDuck/LameDuckService?xsd=2" uri="localhost_8080/LameDuck/LameDuckService.xsd_2.xsd"/>
 </catalog>

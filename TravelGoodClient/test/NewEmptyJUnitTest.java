@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import ws.lameduck.FlightBookingList;
 import ws.travelgood.Itinerary;
 import ws.travelgood.ItineraryHotelEntry;
 
@@ -116,9 +117,14 @@ public class NewEmptyJUnitTest {
         System.out.println(itId);
 
         ws.niceview.HotelBookingList hotel = searchHotels(clientId, itineraryId, "Singapour", "2013-12-03", "2013-12-12");
+        ws.lameduck.FlightBookingList flights = searchFlights(clientId, itineraryId, "Copenhagen", "Paris", "2013-12-10");
         //assertEquals(i1, i2);
+        
+        for(ws.lameduck.FlightBooking fb : flights.getFlightBookings()) {
+            System.out.println(fb.getBookingNumber());
+        }
 
-        for (ws.niceview.HotelBooking hb : hotel.getHotels()) {
+        for (ws.niceview.HotelBooking hb : hotel.getHotelBookings()) {
             boolean addsucc = addHotel(clientId, itineraryId, hb.getBookingNumber());
             //System.out.println("adding "+ hb.getBookingNumber());
             assertTrue(addsucc);
@@ -158,6 +164,34 @@ public class NewEmptyJUnitTest {
         assertFalse(ret);
     }
 
+    @Test
+    public void cancelBookings() {
+        String clientId = "client6";
+        String itineraryId = "itinerary6";
+        Itinerary i = createItinerary(clientId, itineraryId);
+        String itId = i.getId();
+        System.out.println(itId);
+
+        ws.niceview.HotelBookingList hotel = searchHotels(clientId, itineraryId, "Singapour", "2013-12-03", "2013-12-12");
+        //assertEquals(i1, i2);
+        ws.niceview.HotelBooking hb = hotel.getHotelBookings().get(0);
+        boolean addsucc = addHotel(clientId, itineraryId, hb.getBookingNumber());
+
+        boolean cancelSuccess = cancelBooking(clientId, itineraryId);
+        i = getItinerary(clientId, itineraryId);
+        List<ItineraryHotelEntry> bookings = i.getHotelBookings();
+        System.out.println(i.getStatus());
+        //System.out.println(i.getNumberOfHotels());
+
+        for (ItineraryHotelEntry b : bookings) {
+            System.out.println(b.getHotelbookings().getBookingNumber() + " "
+                    + b.getStatus());
+        }
+
+        assertTrue(cancelSuccess);
+
+    }
+
     private static ws.travelgood.Itinerary createItinerary(java.lang.String clientId, java.lang.String itineraryId) {
         ws.travelgood.TravelGoodService service = new ws.travelgood.TravelGoodService();
         ws.travelgood.TravelGoodPortType port = service.getTravelGoodPortTypeBindingPort();
@@ -186,5 +220,17 @@ public class NewEmptyJUnitTest {
         ws.travelgood.TravelGoodService service = new ws.travelgood.TravelGoodService();
         ws.travelgood.TravelGoodPortType port = service.getTravelGoodPortTypeBindingPort();
         return port.bookingItinerary(clientId, itineraryId, creditcardInfo);
+    }
+
+    private static boolean cancelBooking(java.lang.String clientId, java.lang.String itineraryId) {
+        ws.travelgood.TravelGoodService service = new ws.travelgood.TravelGoodService();
+        ws.travelgood.TravelGoodPortType port = service.getTravelGoodPortTypeBindingPort();
+        return port.cancelBooking(clientId, itineraryId);
+    }
+
+    private static FlightBookingList searchFlights(java.lang.String clientId, java.lang.String itineraryId, java.lang.String from, java.lang.String to, java.lang.String date) {
+        ws.travelgood.TravelGoodService service = new ws.travelgood.TravelGoodService();
+        ws.travelgood.TravelGoodPortType port = service.getTravelGoodPortTypeBindingPort();
+        return port.searchFlights(clientId, itineraryId, from, to, date);
     }
 }

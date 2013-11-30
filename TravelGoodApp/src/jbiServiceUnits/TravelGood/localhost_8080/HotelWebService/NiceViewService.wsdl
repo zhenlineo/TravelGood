@@ -7,14 +7,6 @@
 <xsd:import namespace="http://niceview.ws" schemaLocation="http://localhost:8080/HotelWebService/NiceViewService?xsd=2"/>
 </xsd:schema>
 </types>
-<message name="getHotels">
-<part name="arg0" type="xsd:string"/>
-<part name="arg1" type="xsd:string"/>
-<part name="arg2" type="xsd:string"/>
-</message>
-<message name="getHotelsResponse">
-<part name="return" type="tns:hotelBookingList"/>
-</message>
 <message name="bookHotel">
 <part name="arg0" type="xsd:string"/>
 <part xmlns:ns1="urn://types.fastmoney.imm.dtu.dk" name="arg1" type="ns1:creditCardInfoType"/>
@@ -25,6 +17,14 @@
 <message name="HotelFault">
 <part name="fault" element="tns:HotelFault"/>
 </message>
+<message name="getHotels">
+<part name="arg0" type="xsd:string"/>
+<part name="arg1" type="xsd:string"/>
+<part name="arg2" type="xsd:string"/>
+</message>
+<message name="getHotelsResponse">
+<part name="return" type="tns:hotelBookingList"/>
+</message>
 <message name="cancelHotel">
 <part name="arg0" type="xsd:string"/>
 </message>
@@ -32,14 +32,14 @@
 <part name="return" type="xsd:boolean"/>
 </message>
 <portType name="NiceViewService">
-<operation name="getHotels" parameterOrder="arg0 arg1 arg2">
-<input wsam:Action="http://niceview.ws/NiceViewService/getHotelsRequest" message="tns:getHotels"/>
-<output wsam:Action="http://niceview.ws/NiceViewService/getHotelsResponse" message="tns:getHotelsResponse"/>
-</operation>
 <operation name="bookHotel" parameterOrder="arg0 arg1">
 <input wsam:Action="http://niceview.ws/NiceViewService/bookHotelRequest" message="tns:bookHotel"/>
 <output wsam:Action="http://niceview.ws/NiceViewService/bookHotelResponse" message="tns:bookHotelResponse"/>
 <fault message="tns:HotelFault" name="HotelFault" wsam:Action="http://niceview.ws/NiceViewService/bookHotel/Fault/HotelFault"/>
+</operation>
+<operation name="getHotels" parameterOrder="arg0 arg1 arg2">
+<input wsam:Action="http://niceview.ws/NiceViewService/getHotelsRequest" message="tns:getHotels"/>
+<output wsam:Action="http://niceview.ws/NiceViewService/getHotelsResponse" message="tns:getHotelsResponse"/>
 </operation>
 <operation name="cancelHotel">
 <input wsam:Action="http://niceview.ws/NiceViewService/cancelHotelRequest" message="tns:cancelHotel"/>
@@ -49,15 +49,6 @@
 </portType>
 <binding name="NiceViewServicePortBinding" type="tns:NiceViewService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
-<operation name="getHotels">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal" namespace="http://niceview.ws"/>
-</input>
-<output>
-<soap:body use="literal" namespace="http://niceview.ws"/>
-</output>
-</operation>
 <operation name="bookHotel">
 <soap:operation soapAction=""/>
 <input>
@@ -69,6 +60,15 @@
 <fault name="HotelFault">
 <soap:fault name="HotelFault" use="literal"/>
 </fault>
+</operation>
+<operation name="getHotels">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal" namespace="http://niceview.ws"/>
+</input>
+<output>
+<soap:body use="literal" namespace="http://niceview.ws"/>
+</output>
 </operation>
 <operation name="cancelHotel">
 <soap:operation soapAction=""/>
