@@ -213,3 +213,6 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+/JavaApplication12/nbproject/private/
+/LameDuckTestCase/nbproject/private/
+/LameDuckTestClient/nbproject/private/
