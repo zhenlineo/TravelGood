@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://schemas.xmlsoap.org/soap/envelope/ http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <m:createItineraryResponse xmlns:m="http://travelgood.ws">
+      <itinerary>
+        <id>itinerary1</id>
+        <status>unconfirmed</status>
+        <numberOfHotels>0</numberOfHotels>
+        <numberOfFlights>0</numberOfFlights>
+        <startDate>2013-12-02+01:00</startDate>
+      </itinerary>
+    </m:createItineraryResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -7,6 +7,14 @@
 <xsd:import namespace="http://lameduck.ws" schemaLocation="http://localhost:8080/LameDuck/LameDuckService?xsd=2"/>
 </xsd:schema>
 </types>
+<message name="getFlights">
+<part name="arg0" type="xsd:string"/>
+<part name="arg1" type="xsd:string"/>
+<part name="arg2" type="xsd:string"/>
+</message>
+<message name="getFlightsResponse">
+<part name="return" type="tns:flightBookingList"/>
+</message>
 <message name="cancelFlight">
 <part name="arg0" type="xsd:string"/>
 <part name="arg1" type="xsd:int"/>
@@ -25,15 +33,11 @@
 <message name="bookFlightResponse">
 <part name="return" type="xsd:boolean"/>
 </message>
-<message name="getFlights">
-<part name="arg0" type="xsd:string"/>
-<part name="arg1" type="xsd:string"/>
-<part name="arg2" type="xsd:string"/>
-</message>
-<message name="getFlightsResponse">
-<part name="return" type="tns:flightBookingList"/>
-</message>
 <portType name="LameDuckService">
+<operation name="getFlights" parameterOrder="arg0 arg1 arg2">
+<input wsam:Action="http://lameduck.ws/LameDuckService/getFlightsRequest" message="tns:getFlights"/>
+<output wsam:Action="http://lameduck.ws/LameDuckService/getFlightsResponse" message="tns:getFlightsResponse"/>
+</operation>
 <operation name="cancelFlight" parameterOrder="arg0 arg1 arg2">
 <input wsam:Action="http://lameduck.ws/LameDuckService/cancelFlightRequest" message="tns:cancelFlight"/>
 <output wsam:Action="http://lameduck.ws/LameDuckService/cancelFlightResponse" message="tns:cancelFlightResponse"/>
@@ -44,13 +48,18 @@
 <output wsam:Action="http://lameduck.ws/LameDuckService/bookFlightResponse" message="tns:bookFlightResponse"/>
 <fault message="tns:CreditCardFaultMessage" name="CreditCardFaultMessage" wsam:Action="http://lameduck.ws/LameDuckService/bookFlight/Fault/CreditCardFaultMessage"/>
 </operation>
-<operation name="getFlights" parameterOrder="arg0 arg1 arg2">
-<input wsam:Action="http://lameduck.ws/LameDuckService/getFlightsRequest" message="tns:getFlights"/>
-<output wsam:Action="http://lameduck.ws/LameDuckService/getFlightsResponse" message="tns:getFlightsResponse"/>
-</operation>
 </portType>
 <binding name="LameDuckServicePortBinding" type="tns:LameDuckService">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+<operation name="getFlights">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal" namespace="http://lameduck.ws"/>
+</input>
+<output>
+<soap:body use="literal" namespace="http://lameduck.ws"/>
+</output>
+</operation>
 <operation name="cancelFlight">
 <soap:operation soapAction=""/>
 <input>
@@ -74,15 +83,6 @@
 <fault name="CreditCardFaultMessage">
 <soap:fault name="CreditCardFaultMessage" use="literal"/>
 </fault>
-</operation>
-<operation name="getFlights">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal" namespace="http://lameduck.ws"/>
-</input>
-<output>
-<soap:body use="literal" namespace="http://lameduck.ws"/>
-</output>
 </operation>
 </binding>
 <service name="LameDuckService">

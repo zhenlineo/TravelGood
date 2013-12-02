@@ -48,13 +48,13 @@
            
             <xsd:complexType name="itineraryFlightEntry">
                 <xsd:sequence>
-                    <xsd:element minOccurs="0" name="bookingNum" type="ns2:flightBooking"/>
+                    <xsd:element minOccurs="0" name="aflightbooking" type="ns2:flightBooking"/>
                     <xsd:element minOccurs="0" name="status" type="tns:bookingStatus"/>
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:complexType name="itineraryHotelEntry">
                 <xsd:sequence>
-                    <xsd:element minOccurs="0" name="hotelbookings" type="ns1:hotelBooking"/>
+                    <xsd:element minOccurs="0" name="ahotelbooking" type="ns1:hotelBooking"/>
                     <xsd:element minOccurs="0" name="status" type="tns:bookingStatus"/>
                 </xsd:sequence>
             </xsd:complexType>
@@ -113,6 +113,8 @@
     <part name="clientId" type="tns:clientId">
     </part>
     <part name="itineraryId" type="tns:itineraryId">
+    </part>
+    <part name="creditcardInfo" type="ns:creditCardInfoType">
     </part>
   </message>
   <message name="searchFlightsRequest">

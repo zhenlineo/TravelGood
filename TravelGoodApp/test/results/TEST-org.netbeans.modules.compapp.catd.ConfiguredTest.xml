@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="1" hostname="zhenli-PC" name="org.netbeans.modules.compapp.catd.ConfiguredTest" tests="1" time="30.41" timestamp="2013-11-23T18:01:43">
+<testsuite errors="0" failures="3" hostname="zhenli-PC" name="org.netbeans.modules.compapp.catd.ConfiguredTest" tests="3" time="6.589" timestamp="2013-12-02T10:11:06">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -10,7 +10,7 @@
     <property name="libs.junit.javadoc" value="C:\OpenESB-v2.3\netbeans\java\docs\junit-3.8.2-api.zip" />
     <property name="ant.core.lib" value="C:\OpenESB-v2.3\netbeans\java\ant\lib\ant.jar" />
     <property name="libs.jsp-compilation.javadoc" value="" />
-    <property name="user.dir" value="E:\codes\github\TravelGood\TravelGoodApp" />
+    <property name="user.dir" value="E:\codes\github\wsproject\TravelGoodTryout1\TravelGoodApp" />
     <property name="libs.hibernate-persistence.javadoc" value="" />
     <property name="java.vm.version" value="23.5-b02" />
     <property name="libs.jstl11.maven-pom" value="" />
@@ -23,6 +23,7 @@
     <property name="libs.javaee-web-api-6.0.classpath" value="C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\javaee-web-api-6.0.jar" />
     <property name="libs.hibernate-support.maven-pom" value="" />
     <property name="libs.hibernate-support.javadoc" value="" />
+    <property name="TravelGood.su.dir" value="src/jbiasa/../jbiServiceUnits/TravelGood" />
     <property name="jdk.home" value="C:\Program Files\Java\jdk1.7.0_09" />
     <property name="libs.javac-api.src" value="" />
     <property name="xml.module.install.dir" value="C:\OpenESB-v2.3\netbeans\soa\modules" />
@@ -55,7 +56,7 @@
     <property name="libs.jsf12.javadoc" value="C:\OpenESB-v2.3\netbeans\enterprise\docs\javaee6-doc-api.zip" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner org.netbeans.modules.compapp.catd.ConfiguredTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,E:\codes\github\TravelGood\TravelGoodApp\test\results\TEST-org.netbeans.modules.compapp.catd.ConfiguredTest.xml crashfile=C:\Users\zhenli\AppData\Local\Temp\junitvmwatcher1157134265336672337.properties propsfile=C:\Users\zhenli\AppData\Local\Temp\junit4569679273785223488.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner org.netbeans.modules.compapp.catd.ConfiguredTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,E:\codes\github\wsproject\TravelGoodTryout1\TravelGoodApp\test\results\TEST-org.netbeans.modules.compapp.catd.ConfiguredTest.xml crashfile=C:\Users\zhenli\AppData\Local\Temp\junitvmwatcher5718672379563974716.properties propsfile=C:\Users\zhenli\AppData\Local\Temp\junit1312910541130858616.properties" />
     <property name="build.classes.dir" value="build/jar" />
     <property name="enterprise.module.install.dir" value="C:\OpenESB-v2.3\netbeans\enterprise\modules" />
     <property name="libs.jaxws21.javadoc" value="C:\OpenESB-v2.3\netbeans\java\docs\jaxws-api-doc.zip" />
@@ -95,6 +96,7 @@
     <property name="libs.junit.classpath" value="C:\OpenESB-v2.3\netbeans\java\modules\ext\junit-3.8.2.jar" />
     <property name="libs.jaxb.javadoc" value="C:\OpenESB-v2.3\netbeans\ide\docs\jaxb-api-doc.zip" />
     <property name="libs.struts.classpath" value="C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\antlr-2.7.2.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\bsf-2.3.0.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\commons-beanutils-1.8.0.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\commons-chain-1.2.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\commons-digester-1.8.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\commons-fileupload-1.1.1.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\commons-io-1.1.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\commons-logging-1.0.4.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\commons-validator-1.3.1.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\jstl-1.0.2.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\oro-2.0.8.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\standard-1.0.6.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\struts-core-1.3.10.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\struts-el-1.3.10.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\struts-extras-1.3.10.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\struts-faces-1.3.10.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\struts-mailreader-dao-1.3.10.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\struts-scripting-1.3.10.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\struts-taglib-1.3.10.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\struts\struts-tiles-1.3.10.jar" />
+    <property name="org.openide.awt.SwingBrowserImpl.do-not-block-awt" value="false" />
     <property name="ant.home" value="C:\OpenESB-v2.3\netbeans\java\ant" />
     <property name="libs.junit_4.src" value="C:\OpenESB-v2.3\netbeans\java\docs\junit-4.10-sources.jar" />
     <property name="libs.testng.classpath" value="C:\OpenESB-v2.3\netbeans\platform\modules\ext\testng-6.5.1-dist.jar" />
@@ -105,8 +107,9 @@
     <property name="libs.Encoder-HL7.classpath" value="C:\OpenESB-v2.3\netbeans\soa\modules\ext\hl7.jar;C:\OpenESB-v2.3\netbeans\soa\modules\ext\hl7encoder-xsdextension.jar" />
     <property name="java.util.logging.config.class" value="org.netbeans.core.startup.TopLogging" />
     <property name="libs.PostgreSQLDriver.src" value="" />
+    <property name="include.jar.manifest" value="" />
     <property name="sun.arch.data.model" value="64" />
-    <property name="basedir" value="E:\codes\github\TravelGood\TravelGoodApp" />
+    <property name="basedir" value="E:\codes\github\wsproject\TravelGoodTryout1\TravelGoodApp" />
     <property name="libs.jpa20-persistence.maven-pom" value="" />
     <property name="libs.jstl11.classpath" value="C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\standard.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\jstl.jar" />
     <property name="path.separator" value=";" />
@@ -118,12 +121,13 @@
     <property name="user.language" value="en" />
     <property name="libs.Encoder-Framework.src" value="" />
     <property name="libs.JAXB-ENDORSED.maven-pom" value="" />
-    <property name="ant.file." value="E:\codes\github\TravelGood\TravelGoodApp\build.xml" />
+    <property name="ant.file." value="E:\codes\github\wsproject\TravelGoodTryout1\TravelGoodApp\build.xml" />
     <property name="libs.spring-framework.classpath" value="C:\OpenESB-v2.3\netbeans\ide\modules\org-apache-commons-logging.jar;C:\OpenESB-v2.3\netbeans\java\modules\ext\cglib-2.2.jar;C:\OpenESB-v2.3\netbeans\java\modules\ext\spring\spring-2.5.6.SEC03.jar" />
     <property name="libs.eclipselink.maven-pom" value="" />
+    <property name="TravelGood.su.name" value="TravelGood" />
     <property name="libs.primefaces.javadoc" value="" />
     <property name="libs.spring-framework300.maven-pom" value="" />
-    <property name="ant.project.invoked-targets" value="test-single" />
+    <property name="ant.project.invoked-targets" value="run,test" />
     <property name="libs.Encoder-Framework.classpath" value="C:\OpenESB-v2.3\netbeans\soa\modules\ext\encoderframework.jar;C:\OpenESB-v2.3\netbeans\soa\modules\ext\encoderfrmwk-xsdextension.jar;C:\OpenESB-v2.3\netbeans\soa\modules\ext\xbean.jar" />
     <property name="libs.swing-layout.javadoc" value="C:\OpenESB-v2.3\netbeans\platform\docs\swing-layout-1.0.4-doc.zip" />
     <property name="project.TravelGood" value="../TravelGood" />
@@ -160,7 +164,7 @@
     <property name="libs.JAX-WS-ENDORSED.src" value="" />
     <property name="libs.junit_4.javadoc" value="C:\OpenESB-v2.3\netbeans\java\docs\junit-4.10-javadoc.jar" />
     <property name="libs.spring-webmvc.javadoc" value="" />
-    <property name="test.results.dir" value="E:\codes\github\TravelGood\TravelGoodApp/test/results" />
+    <property name="test.results.dir" value="E:\codes\github\wsproject\TravelGoodTryout1\TravelGoodApp/test/results" />
     <property name="libs.javaee-web-api-6.0.maven-pom" value="" />
     <property name="libs.hibernate-support.src" value="" />
     <property name="jna.boot.library.name" value="jnidispatch-340" />
@@ -173,7 +177,7 @@
     <property name="sun.java2d.noddraw" value="true" />
     <property name="libs.jsp-compiler.classpath" value="C:\OpenESB-v2.3\netbeans\enterprise\ant\extra\jspcompile.jar" />
     <property name="libs.spring-webmvc.classpath" value="C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\spring\spring-webmvc-2.5.6.SEC03.jar" />
-    <property name="ant.file" value="E:\codes\github\TravelGood\TravelGoodApp\build.xml" />
+    <property name="ant.file" value="E:\codes\github\wsproject\TravelGoodTryout1\TravelGoodApp\build.xml" />
     <property name="libs.beans-binding.maven-pom" value="" />
     <property name="com.sun.jbi.routing.bc.autoconnect" value="true" />
     <property name="libs.jsf12.classpath" value="C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\jsf-1_2\commons-beanutils.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\jsf-1_2\commons-collections.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\jsf-1_2\commons-digester.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\jsf-1_2\commons-logging.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\jsf-1_2\jsf-api.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\jsf-1_2\jsf-impl.jar" />
@@ -190,18 +194,19 @@
     <property name="netbeans.user" value="C:\OpenESB-v2.3\.netbeans\openesb" />
     <property name="java.io.tmpdir" value="C:\Users\zhenli\AppData\Local\Temp\" />
     <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="dist.jar.dir" value="E:\codes\github\wsproject\TravelGoodTryout1\TravelGoodApp\dist" />
     <property name="libs.jsp-compiler.src" value="" />
     <property name="org.openide.awt.ActionReference.completion" value="org.netbeans.modules.apisupport.project.layers.PathCompletions" />
     <property name="libs.Encoder-COCO.src" value="" />
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_09\jre\bin" />
-    <property name="ant.file.TravelGoodApp-jbi-impl" value="E:\codes\github\TravelGood\TravelGoodApp\nbproject\build-impl.xml" />
+    <property name="ant.file.TravelGoodApp-jbi-impl" value="E:\codes\github\wsproject\TravelGoodTryout1\TravelGoodApp\nbproject\build-impl.xml" />
     <property name="libs.jsf20.classpath" value="C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\jsf-2_1\jsf-api.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\jsf-2_1\jsf-impl.jar" />
     <property name="src.build.dir" value="src/jbiServiceUnits" />
     <property name="dist.jar" value="dist/TravelGoodApp.zip" />
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
     <property name="ant.project.name" value="" />
     <property name="libs.PojoSELib.javadoc" value="C:\OpenESB-v2.3\netbeans\soa\modules\ext\sun-pojo-engine-api-javadoc.jar" />
-    <property name="netbeans.hash.code" value="unique=NB_GLASSFISH050a1c18e-03fe-4d15-bff3-3465da6f8766_118edf63-33f0-4197-acd7-5d6036457439" />
+    <property name="netbeans.hash.code" value="unique=NB_GLASSFISH050a1c18e-03fe-4d15-bff3-3465da6f8766_d8aa9f9a-ba21-4ce2-a7fd-0ef76884f988" />
     <property name="netbeans.default_userdir_root" value="" />
     <property name="libs.jsp-compilation-syscp.maven-pom" value="" />
     <property name="sun.cpu.isalist" value="amd64" />
@@ -266,7 +271,6 @@
     <property name="libs.JAX-WS-ENDORSED.javadoc" value="" />
     <property name="dist.dir" value="dist" />
     <property name="org.netbeans.modules.compapp.catd.context" value="" />
-    <property name="inDebug" value="${inDebug}" />
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
     <property name="default.javac.source" value="1.7" />
     <property name="libs.MySQLDriver.src" value="" />
@@ -287,10 +291,10 @@
     <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.7.0_09\jre\lib\ext;C:\Windows\Sun\Java\lib\ext" />
     <property name="libs.metro.src" value="" />
     <property name="libs.absolutelayout.classpath" value="C:\OpenESB-v2.3\netbeans\java\modules\ext\AbsoluteLayout.jar" />
-    <property name="libs.restlib.maven-pom" value="" />
     <property name="libs.metro.classpath" value="C:\OpenESB-v2.3\netbeans\ide\modules\ext\jaxb\activation.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\metro\webservices-api.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\metro\webservices-extra-api.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\metro\webservices-extra.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\metro\webservices-rt.jar;C:\OpenESB-v2.3\netbeans\enterprise\modules\ext\metro\webservices-tools.jar" />
-    <property name="java.class.path" value="C:\OpenESB-v2.3\netbeans\soa\modules\org-netbeans-modules-compapp-manager-jbi.jar;C:\OpenESB-v2.3\netbeans\soa\modules\org-netbeans-modules-compapp-projects-jbi.jar;C:\OpenESB-v2.3\netbeans\soa\modules\ext\jbi-admin-common.jar;C:\OpenESB-v2.3\netbeans\soa\modules\ext\catd.jar;C:\OpenESB-v2.3\netbeans\java\modules\ext\junit-3.8.2.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-lib.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-deprecated-pre65formatting.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-util.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-lib2.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-indent.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-plain.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-plain-lib.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-settings.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-settings-storage.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-lexer.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-xml-core.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-xml-lexer.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-xml-text.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-xml-xdm.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-xml-xam.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-csl-api.jar;C:\OpenESB-v2.3\netbeans\ide\modules\ext\jaxb\activation.jar;C:\OpenESB-v2.3\netbeans\platform\lib\org-openide-modules.jar;C:\OpenESB-v2.3\netbeans\platform\lib\org-openide-util.jar;C:\OpenESB-v2.3\netbeans\platform\lib\org-openide-util-lookup.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-openide-awt.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-openide-options.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-openide-text.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-openide-loaders.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-openide-nodes.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-netbeans-modules-editor-mimelookup.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-netbeans-modules-editor-mimelookup-impl.jar;C:\OpenESB-v2.3\netbeans\platform\core\org-openide-filesystems.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-netbeans-modules-keyring.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-openide-dialogs.jar;E:\codes\db-derby-10.9.1.0-bin\lib\derbyclient.jar;E:\codes\db-derby-10.9.1.0-bin\lib\derbytools.jar;E:\codes\db-derby-10.9.1.0-bin\lib\derbynet.jar;C:\OpenESB-v2.3\netbeans\java\ant\lib\ant-launcher.jar;C:\OpenESB-v2.3\netbeans\java\ant\lib\ant.jar;C:\OpenESB-v2.3\netbeans\java\ant\lib\ant-junit.jar;C:\OpenESB-v2.3\netbeans\java\ant\lib\ant-junit4.jar" />
+    <property name="libs.restlib.maven-pom" value="" />
     <property name="jbi.content.component" value="sun-bpel-engine" />
+    <property name="java.class.path" value="C:\OpenESB-v2.3\netbeans\soa\modules\org-netbeans-modules-compapp-manager-jbi.jar;C:\OpenESB-v2.3\netbeans\soa\modules\org-netbeans-modules-compapp-projects-jbi.jar;C:\OpenESB-v2.3\netbeans\soa\modules\ext\jbi-admin-common.jar;C:\OpenESB-v2.3\netbeans\soa\modules\ext\catd.jar;C:\OpenESB-v2.3\netbeans\java\modules\ext\junit-3.8.2.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-lib.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-deprecated-pre65formatting.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-util.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-lib2.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-indent.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-plain.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-plain-lib.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-settings.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-editor-settings-storage.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-lexer.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-xml-core.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-xml-lexer.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-xml-text.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-xml-xdm.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-xml-xam.jar;C:\OpenESB-v2.3\netbeans\ide\modules\org-netbeans-modules-csl-api.jar;C:\OpenESB-v2.3\netbeans\ide\modules\ext\jaxb\activation.jar;C:\OpenESB-v2.3\netbeans\platform\lib\org-openide-modules.jar;C:\OpenESB-v2.3\netbeans\platform\lib\org-openide-util.jar;C:\OpenESB-v2.3\netbeans\platform\lib\org-openide-util-lookup.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-openide-awt.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-openide-options.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-openide-text.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-openide-loaders.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-openide-nodes.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-netbeans-modules-editor-mimelookup.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-netbeans-modules-editor-mimelookup-impl.jar;C:\OpenESB-v2.3\netbeans\platform\core\org-openide-filesystems.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-netbeans-modules-keyring.jar;C:\OpenESB-v2.3\netbeans\platform\modules\org-openide-dialogs.jar;E:\codes\db-derby-10.9.1.0-bin\lib\derbyclient.jar;E:\codes\db-derby-10.9.1.0-bin\lib\derbytools.jar;E:\codes\db-derby-10.9.1.0-bin\lib\derbynet.jar;C:\OpenESB-v2.3\netbeans\java\ant\lib\ant-launcher.jar;C:\OpenESB-v2.3\netbeans\java\ant\lib\ant.jar;C:\OpenESB-v2.3\netbeans\java\ant\lib\ant-junit.jar;C:\OpenESB-v2.3\netbeans\java\ant\lib\ant-junit4.jar" />
     <property name="libs.absolutelayout.src" value="" />
     <property name="libs.jpa20-persistence.classpath" value="C:\OpenESB-v2.3\netbeans\java\modules\ext\eclipselink\javax.persistence-2.0.3.jar" />
     <property name="os.version" value="6.1" />
@@ -326,12 +330,25 @@
     <property name="file.encoding" value="GBK" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
   </properties>
-  <testcase classname="org.netbeans.modules.compapp.catd.ConfiguredTest" name="TestCase2" time="30.387">
-    <failure message=" Passed. Threads count Success: &lt;0&gt; Error: &lt;0&gt; Not completed: &lt;1&gt;&#xa;Details: &#xa;&lt;Concurrent test thread 0&gt; did not complete. Success rate 0/1 &#xa;" type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError:  Passed. Threads count Success: &lt;0&gt; Error: &lt;0&gt; Not completed: &lt;1&gt;
-Details: 
-&lt;Concurrent test thread 0&gt; did not complete. Success rate 0/1 
-
-	at org.netbeans.modules.compapp.catd.ConfiguredTest.testConcurrentSOAPRequest(ConfiguredTest.java:889)
+  <testcase classname="org.netbeans.modules.compapp.catd.ConfiguredTest" name="TestCase1" time="6.426">
+    <failure message="[2013-12-2 11:11:13] The response is not identical to the expected output." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: [2013-12-2 11:11:13] The response is not identical to the expected output.
+	at org.netbeans.modules.compapp.catd.ConfiguredTest.checkExpectedOutput(ConfiguredTest.java:2354)
+	at org.netbeans.modules.compapp.catd.ConfiguredTest.checkExpectedOutput(ConfiguredTest.java:2224)
+	at org.netbeans.modules.compapp.catd.ConfiguredTest.testConcurrentSOAPRequest(ConfiguredTest.java:867)
+</failure>
+  </testcase>
+  <testcase classname="org.netbeans.modules.compapp.catd.ConfiguredTest" name="TestCase2" time="0.049">
+    <failure message="[2013-12-2 11:11:13] The response is not identical to the expected output." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: [2013-12-2 11:11:13] The response is not identical to the expected output.
+	at org.netbeans.modules.compapp.catd.ConfiguredTest.checkExpectedOutput(ConfiguredTest.java:2354)
+	at org.netbeans.modules.compapp.catd.ConfiguredTest.checkExpectedOutput(ConfiguredTest.java:2224)
+	at org.netbeans.modules.compapp.catd.ConfiguredTest.testConcurrentSOAPRequest(ConfiguredTest.java:867)
+</failure>
+  </testcase>
+  <testcase classname="org.netbeans.modules.compapp.catd.ConfiguredTest" name="TestCase3" time="0.071">
+    <failure message="[2013-12-2 11:11:13] The response is not identical to the expected output." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: [2013-12-2 11:11:13] The response is not identical to the expected output.
+	at org.netbeans.modules.compapp.catd.ConfiguredTest.checkExpectedOutput(ConfiguredTest.java:2354)
+	at org.netbeans.modules.compapp.catd.ConfiguredTest.checkExpectedOutput(ConfiguredTest.java:2224)
+	at org.netbeans.modules.compapp.catd.ConfiguredTest.testConcurrentSOAPRequest(ConfiguredTest.java:867)
 </failure>
   </testcase>
   <system-out><![CDATA[GenerateATSOutput=${generate.ats.output}
@@ -341,7 +358,6 @@ awt.toolkit=sun.awt.windows.WToolkit
 file.encoding=GBK
 file.encoding.pkg=sun.io
 file.separator=\
-inDebug=${inDebug}
 java.awt.graphicsenv=sun.awt.Win32GraphicsEnvironment
 java.awt.headless=${java.awt.headless}
 java.awt.printerjob=sun.awt.windows.WPrinterJob
@@ -382,14 +398,14 @@ sun.cpu.endian=little
 sun.cpu.isalist=amd64
 sun.desktop=windows
 sun.io.unicode.encoding=UnicodeLittle
-sun.java.command=org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner org.netbeans.modules.compapp.catd.ConfiguredTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,E:\codes\github\TravelGood\TravelGoodApp\test\results\TEST-org.netbeans.modules.compapp.catd.ConfiguredTest.xml crashfile=C:\Users\zhenli\AppData\Local\Temp\junitvmwatcher1157134265336672337.properties propsfile=C:\Users\zhenli\AppData\Local\Temp\junit4569679273785223488.properties
+sun.java.command=org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner org.netbeans.modules.compapp.catd.ConfiguredTest filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,E:\codes\github\wsproject\TravelGoodTryout1\TravelGoodApp\test\results\TEST-org.netbeans.modules.compapp.catd.ConfiguredTest.xml crashfile=C:\Users\zhenli\AppData\Local\Temp\junitvmwatcher5718672379563974716.properties propsfile=C:\Users\zhenli\AppData\Local\Temp\junit1312910541130858616.properties
 sun.java.launcher=SUN_STANDARD
 sun.jnu.encoding=GBK
 sun.management.compiler=HotSpot 64-Bit Tiered Compilers
 sun.os.patch.level=Service Pack 1
 user.country=US
 user.country.format=CN
-user.dir=E:\codes\github\TravelGood\TravelGoodApp
+user.dir=E:\codes\github\wsproject\TravelGoodTryout1\TravelGoodApp
 user.home=C:\Users\zhenli
 user.language=en
 user.language.format=zh
@@ -397,7 +413,28 @@ user.name=zhenli
 user.script=
 user.timezone=Europe/Paris
 user.variant=
-Test TestCase2\Concurrent.properties Failed. (Destination: http://localhost:${HttpDefaultPort}/service)
+Test TestCase1\Concurrent.properties
+  * Difference (Add): numberOfHotels
+  * Difference (Add): numberOfFlights
+  * Difference (Add): startDate
+  * Difference (Delete): #text
+  * Difference (Add): #text
+ Failed. (Destination: http://localhost:${HttpDefaultPort}/service)
+Test TestCase2\Concurrent.properties
+  * Difference (Add): numberOfHotels
+  * Difference (Add): numberOfFlights
+  * Difference (Add): startDate
+  * Difference (Delete): #text
+  * Difference (Add): #text
+ Failed. (Destination: http://localhost:${HttpDefaultPort}/service)
+Test TestCase3\Concurrent.properties
+  * Difference (Delete): #text
+  * Difference (Add): #text
+ Failed. (Destination: http://localhost:${HttpDefaultPort}/service)
 ]]></system-out>
-  <system-err><![CDATA[]]></system-err>
+  <system-err><![CDATA[十二月 02, 2013 11:11:12 上午 org.netbeans.modules.editor.settings.storage.keybindings.KeyMapsStorage$KeyMapsReader startElement
+WARNING: The keybinding 'A-MOUSE_WHEEL_UP' in Editors/Keybindings/NetBeans/Defaults/org-netbeans-modules-editor-keybindings.xml may not work correctly on Mac. Keybindings starting with Alt or Ctrl should be coded with latin capital letters 'O' or 'D' respectively. For details see org.openide.util.Utilities.stringToKey().
+十二月 02, 2013 11:11:12 上午 org.netbeans.modules.editor.settings.storage.keybindings.KeyMapsStorage$KeyMapsReader startElement
+WARNING: The keybinding 'A-MOUSE_WHEEL_DOWN' in Editors/Keybindings/NetBeans/Defaults/org-netbeans-modules-editor-keybindings.xml may not work correctly on Mac. Keybindings starting with Alt or Ctrl should be coded with latin capital letters 'O' or 'D' respectively. For details see org.openide.util.Utilities.stringToKey().
+]]></system-err>
 </testsuite>

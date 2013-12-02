@@ -51,13 +51,13 @@
            
             <xsd:complexType name="itineraryFlightEntry">
                 <xsd:sequence>
-                    <xsd:element name="bookingNum" type="ns2:flightBooking" minOccurs="0"/>
+                    <xsd:element name="aflightbooking" type="ns2:flightBooking" minOccurs="0"/>
                     <xsd:element name="status" type="tns:bookingStatus" minOccurs="0"/>
                 </xsd:sequence>
             </xsd:complexType>
             <xsd:complexType name="itineraryHotelEntry">
                 <xsd:sequence>
-                    <xsd:element name="hotelbookings" type="ns1:hotelBooking" minOccurs="0"/>
+                    <xsd:element name="ahotelbooking" type="ns1:hotelBooking" minOccurs="0"/>
                     <xsd:element name="status" type="tns:bookingStatus" minOccurs="0"/>
                 </xsd:sequence>
             </xsd:complexType>
@@ -119,6 +119,7 @@
     <message name="cancelBookingRequest">
         <part name="clientId" type="tns:clientId"/>
         <part name="itineraryId" type="tns:itineraryId"/>
+        <part name="creditcardInfo" type="ns:creditCardInfoType"/>
     </message>
     <message name="cancelBookingResponse">
         <part name="ret" type="xsd:boolean"/>
